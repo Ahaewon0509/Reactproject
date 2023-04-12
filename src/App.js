@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <div className='black-nav'>
-        <h4>블로그다</h4>
+        <h4>blog</h4>
       </div>
 
       {/* <button onClick={()=>{
@@ -42,21 +42,20 @@ function App() {
         <h4>{a[2]}</h4>
         <p>4월6일 발생</p>
       </div> */}
+
       {/* 이 아래 내용은 위에 있는 반복되는 내용을 map(반복문)을 사용해서 코드짠 것 */}
       {
-          a.map(function(parm,i){ //useState의 배열
+          a.map(function(parm, i){ //useState의 배열
             return (
               <div className='list' key={i}>
               <h4 onClick={()=>{
-                setTitle(i)
+                setTitle(i);
                 setModal(modal == true ? modal = false : modal = true) //조건문(삼항연산자)
-              }}>{a[i]}</h4>
-              <span onClick={()=>{
+              }}>{a[i]}</h4><span onClick={()=>{
                 let copyLike = [...like];
                 copyLike[i] = copyLike[i] +1;
-                setLike(copyLike)
-              }}>💖</span>{like[i]}
-              <p>4월6일 발행</p>
+                setLike(copyLike)}}>💖</span>{like[i]}
+                <p>4월12일 작성</p>
               </div>
               
             )
@@ -64,7 +63,7 @@ function App() {
         }
         {/*이 말은 App.js파일이 Modal.js파일의 부모라는 뜻*/}
         {/* 프롭스 */}
-        {modal = true ? <Modal color="skyblue" name={a} title={title} /> : null}
+        {modal == true ? <Modal color="skyblue" name={a} title={title} /> : null}
         {/* 컴포넌트가 나타났다 사라졌다 */}
         {/* 모달이 참값이면 모달이 나타나고, 거짓이면 null을 해라*/}
     </div>
