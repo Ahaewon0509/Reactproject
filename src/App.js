@@ -9,7 +9,23 @@ function App() {
   let [like, setLike] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0); //상태 저장
+  let [input, setInput] = useState(''); 
   
+  // 빈값이 있을 때 비었다고 팝업창이 나오게 하기
+  let plus = function(){
+    if(input == '' || input == null || input == undefined){
+      alert("비어있다!");
+    }else{
+      let copya=[...a];
+      copya.unshift(input);
+      setA(copya);
+  
+      let copyLike2 = [...like];
+      copyLike2.unshift(0);
+      setLike(copyLike2);
+    }
+  }
+
 
   return (
     <div className="App">
@@ -55,12 +71,31 @@ function App() {
                 let copyLike = [...like];
                 copyLike[i] = copyLike[i] +1;
                 setLike(copyLike)}}>💖</span>{like[i]}
-                <p>4월12일 작성</p>
+                <p>글쓴이</p>
+
+                {/* 삭제 기능 추가 */}
+                <button onClick={()=>{
+                  let copya=[...a];
+                  copya.splice(i,1);
+                  setA(copya);
+                }}>삭제</button>
               </div>
-              
             )
           })
         }
+
+        {/* 글쓰기 추가 버튼 */}
+        <input type="text" onChange={(e)=>{
+          setInput(e.target.value);
+          // console.log(input);
+        }}/>
+
+        <button onClick={
+          plus
+          // 글을 추가할때 좋아요 수가 저장 안되게 하는 것
+        }>글쓰기</button>
+        
+
         {/*이 말은 App.js파일이 Modal.js파일의 부모라는 뜻*/}
         {/* 프롭스 */}
         {modal == true ? <Modal color="skyblue" name={a} title={title} /> : null}
