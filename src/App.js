@@ -9,7 +9,7 @@ function App() {
   let [like, setLike] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0); //상태 저장
-  let [input, setInput] = useState(''); 
+  let [input, setInput] = useState('');
   
   // 빈값이 있을 때 비었다고 팝업창이 나오게 하기
   let plus = function(){
@@ -30,8 +30,22 @@ function App() {
   return (
     <div className="App">
       <div className='black-nav'>
-        <h4>blog</h4>
+        <h4>혜원's Todo List</h4>
       </div>
+
+    <div className='search'>
+      {/* 글쓰기 추가 버튼 */}
+      <input type="text" placeholder='무엇을 할까요??' onChange={(e)=>{
+        setInput(e.target.value);
+        // console.log(input);
+      }}/>
+
+      <button onClick={
+        plus
+        // 글을 추가할때 좋아요 수가 저장 안되게 하는 것
+      }>글쓰기</button>
+    </div>
+
 
       {/* <button onClick={()=>{
         let copy1 = [...a];
@@ -71,7 +85,7 @@ function App() {
                 let copyLike = [...like];
                 copyLike[i] = copyLike[i] +1;
                 setLike(copyLike)}}>💖</span>{like[i]}
-                <p>글쓴이</p>
+                <p>중요도</p>
 
                 {/* 삭제 기능 추가 */}
                 <button onClick={()=>{
