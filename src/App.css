@@ -1,7 +1,23 @@
 *{
   margin: 0;
   padding: 0;
+  /* font-family: 'Nanum Pen Script', cursive; */
+  font-family: 'Hi Melody', cursive;
 }
+::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: hwb(9 28% 0%); /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 99, 71, .2);  /*스크롤바 뒷 배경 색상*/
+}
+
 #root{
   padding-top: 6%;
   background: url('../public/bored.png');
@@ -14,6 +30,30 @@
   /* background: #fff; */
   background: url("http://payload219.cargocollective.com/1/11/360225/6681237/184921412-1_o.jpg") no-repeat;
   background-size: cover;
+  position: relative;
+}
+.App::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url('../public/icon1.png') no-repeat;
+  background-size: cover;
+  top: -4%;
+  left: 87%;
+  transform: rotate(189deg);
+}
+.App::before{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url('../public/icon3.png') no-repeat;
+  background-size: cover;
+  top: 88%;
+  left: -8%;
 }
 .black-nav{
   position: relative;
@@ -34,13 +74,14 @@
 } */
 .black-nav h4{
   position: absolute;
-  width: 110px;
+  width: 143px;
   height: 70px;
-  top: 55%;
+  top: 62%;
   left: 6%;
   line-height: 70px;
-  font-size: 25px;
+  font-size: 35px;
   color: #222;
+  font-family: 'Pangolin', cursive;
 }
 .black-nav p::after{
   content: "";
@@ -52,7 +93,7 @@
   background-image: radial-gradient(at 60% 30%, #f99, red 20%, #b40800);
   background-position: 20% 10%;
   position: absolute;
-  top: 13%;
+  top: 16%;
   left: 48%;
   transform: scale(1);
   box-shadow: -11px 10px 6px -8.5px #000,
@@ -72,12 +113,18 @@ div{
   display: flex;
   justify-content: flex-start;
   padding-bottom: 10px;
+  align-items: center;
 }
 .list h4{
   width: 53%;
+  font-size: 20px;
 }
 .list p{
   margin-right: 5%;
+  font-size: 16px;
+}
+.list span{
+  margin-left: 7px;
 }
 .search{
   width: 290px;
@@ -102,7 +149,7 @@ div{
 }
 .listScroll{
   width: 98%;
-  height: 475px;
+  height: 430px;
   overflow: auto;
   margin: 0 auto;
 }
@@ -117,6 +164,7 @@ input[type="text"]{
   border-bottom: 1px solid blue;
   background-color: transparent;
   outline: none;
+  width: 72%;
 }
 input[type="text"]:focus{
   background: #fff;
@@ -129,25 +177,61 @@ input[type="text"]:focus{
 .listGroup .closeBtn{
   position: relative;
   display: block;
-  margin-left: 20px;
+  margin-left: 28px;
   /* background: url('../public/delete.svg') no-repeat; */
   width: 30px;
   height: 30px;
   border: none;
   background: #b2c3ff;
+  border-radius: 50%;
+  transition: all 0.5s;
 }
 .listGroup .closeBtn::after{
   content: "";
   display: block;
   background: url('../public/delete.svg') no-repeat;
-  width: 30px;
-  height: 30px;
+  background-size: cover;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  margin-left: 6px;
+}
+.listGroup .closeBtn:hover{
+  background: #ff4d00;
 }
 .listGroup{}
 .listGroup{}
 
-
-
+/* .modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5) !important;
+  z-index: 99;
+}
+.modalPop{
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  border-radius: 10px;
+} */
+.modal{
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.modalPop{
+  display: flex;
+  align-items: center;
+}
+.modalPop h4{
+  padding: 15px 20px;
+  width: 74%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

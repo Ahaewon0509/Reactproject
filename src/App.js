@@ -5,8 +5,8 @@ import React from 'react';
 import Modal from './Component/Modal';
 
 function App() {
-  let [a, setA] = useState(['블로그 글 제목3','블로그 글 제목2','블로그 글 제목1']);
-  let [like, setLike] = useState([0,0,0]);
+  let [a, setA] = useState(['아침 일찍 일어나기','맛있는 아침먹기','아침밥 먹고 학원가기ㅠㅠ','빨리 하루가 지나가게 시계보기','후다닥 공부하기']);
+  let [like, setLike] = useState([0,0,0,0,0,0,0,0,0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0); //상태 저장
   let [input, setInput] = useState('');
@@ -117,22 +117,16 @@ function App() {
             )
           })
         }
+        {/*이 말은 App.js파일이 Modal.js파일의 부모라는 뜻*/}
+        {/* 프롭스 */}
+        {modal == true ? <Modal color="#fff" name={a} title={title} date={date} /> : null}
+        {/* 컴포넌트가 나타났다 사라졌다 */}
+        {/* 모달이 참값이면 모달이 나타나고, 거짓이면 null을 해라*/}
       </div>
-        {/* 글쓰기 추가 버튼
-        <input type="text" onChange={(e)=>{
-          setInput(e.target.value);
-          // console.log(input);
-        }}/>
-
-        <button onClick={
-          plus
-          // 글을 추가할때 좋아요 수가 저장 안되게 하는 것
-        }>글쓰기</button>
-         */}
 
         {/*이 말은 App.js파일이 Modal.js파일의 부모라는 뜻*/}
         {/* 프롭스 */}
-        {modal == true ? <Modal color="skyblue" name={a} title={title} date={date} /> : null}
+        {/* {modal == true ? <Modal color="skyblue" name={a} title={title} date={date} /> : null} */}
         {/* 컴포넌트가 나타났다 사라졌다 */}
         {/* 모달이 참값이면 모달이 나타나고, 거짓이면 null을 해라*/}
     </div>
